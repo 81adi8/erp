@@ -1,0 +1,63 @@
+# =====================================================
+# SERVER GITIGNORE
+# =====================================================
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Test coverage - REGENERABLE
+coverage/
+.nyc_output/
+
+# Logs
+*.log
+logs/
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Debug scripts output
+validation_*.txt
+validation_*.log
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug/Development scripts - DO NOT COMMIT
+dev-scripts/
+
+# Tenant runtime migrations - DO NOT COMMIT
+tenant-runtime/
+
+# Development environment configs - DO NOT COMMIT
+dev-env/
+
+# Debug/Development scripts (optional - uncomment if needed)
+# debug-*.ts
+# test-*.ts
+# check-*.ts
+# do_*.ts

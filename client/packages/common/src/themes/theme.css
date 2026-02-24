@@ -1,0 +1,189 @@
+/**
+ * Base CSS Variables Template
+ * 
+ * Import this in your main CSS file to establish CSS variable defaults.
+ * The ThemeProvider will override these at runtime.
+ */
+
+:root {
+    /* Colors - Default Light Theme */
+    --color-primary: #3B82F6;
+    --color-primary-light: #60A5FA;
+    --color-primary-dark: #2563EB;
+    --color-primary-foreground: #ffffff;
+
+    --color-secondary: #8B5CF6;
+    --color-secondary-light: #A78BFA;
+    --color-secondary-dark: #7C3AED;
+    --color-secondary-foreground: #ffffff;
+
+    --color-background: #F8FAFC;
+    --color-foreground: #1E293B;
+
+    --color-surface: #FFFFFF;
+    --color-surface-hover: #F1F5F9;
+
+    /* Card (alias for surface) */
+    --color-card: #FFFFFF;
+    --color-card-foreground: #1E293B;
+
+    /* Muted */
+    --color-muted: #F1F5F9;
+    --color-muted-foreground: #94A3B8;
+
+    --color-text: #1E293B;
+    --color-text-secondary: #475569;
+    --color-text-muted: #94A3B8;
+
+    --color-border: #E2E8F0;
+    --color-border-light: #F1F5F9;
+
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-error: #EF4444;
+    --color-info: #0EA5E9;
+
+    /* Destructive (alias for error) */
+    --color-destructive: #EF4444;
+    --color-destructive-foreground: #ffffff;
+
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+
+    /* Border Radius */
+    --radius-none: 0;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+    /* Color scheme for native elements */
+    color-scheme: light;
+}
+
+/* Utility classes using CSS variables */
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+.bg-background {
+    background-color: var(--color-background);
+}
+
+.bg-surface {
+    background-color: var(--color-surface);
+}
+
+.text-error {
+    color: var(--color-error);
+}
+
+/* Card Utilities */
+.bg-card {
+    background-color: var(--color-card);
+}
+
+.text-card-foreground {
+    color: var(--color-card-foreground);
+}
+
+.border-card {
+    border-color: var(--color-border);
+}
+
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary-light);
+}
+
+.card-glass {
+    background: rgba(var(--color-surface), 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.border-default {
+    border-color: var(--color-border);
+}
+
+.border-light {
+    border-color: var(--color-border-light);
+}
+
+.shadow-sm {
+    box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+    box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+    box-shadow: var(--shadow-lg);
+}
+
+.shadow-xl {
+    box-shadow: var(--shadow-xl);
+}
+
+.rounded-sm {
+    border-radius: var(--radius-sm);
+}
+
+.rounded-md {
+    border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+    border-radius: var(--radius-lg);
+}
+
+.rounded-xl {
+    border-radius: var(--radius-xl);
+}
+
+.rounded-full {
+    border-radius: var(--radius-full);
+}
