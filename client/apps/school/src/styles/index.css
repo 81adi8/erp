@@ -1,0 +1,293 @@
+@import "tailwindcss";
+
+
+
+
+@source "../../node_modules/@erp/common/src/**/*.{js,ts,jsx,tsx}";
+@source "../../../packages/common/src/**/*.{js,ts,jsx,tsx}";
+/* 
+ * Tailwind v4 Theme Configuration
+ * Maps CSS variables from ThemeContext to Tailwind utility classes
+ */
+@theme {
+  /* Primary Colors */
+  --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-foreground: #ffffff;
+
+  /* Secondary Colors */
+  --color-secondary: var(--color-secondary);
+  --color-secondary-light: var(--color-secondary-light);
+  --color-secondary-dark: var(--color-secondary-dark);
+  --color-secondary-foreground: #ffffff;
+
+  /* Background & Surface */
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-text);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+
+  /* Card (alias for surface) */
+  --color-card: var(--color-surface);
+  --color-card-foreground: var(--color-text);
+
+  /* Muted */
+  --color-muted: var(--color-surface-hover);
+  --color-muted-foreground: var(--color-text-muted);
+
+  /* Text Colors */
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+
+  /* Border Colors */
+  --color-border: var(--color-border);
+  --color-border-light: var(--color-border-light);
+
+  /* State Colors */
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-info: var(--color-info);
+
+  /* Destructive (alias for error) */
+  --color-destructive: var(--color-error);
+  --color-destructive-foreground: #ffffff;
+
+  /* Typography */
+  --font-family-sans: var(--font-family);
+  --font-family-mono: var(--font-family-mono);
+
+  /* Dynamic Font Weights */
+  --font-weight-light: var(--font-weight-light);
+  --font-weight-normal: var(--font-weight-normal);
+  --font-weight-medium: var(--font-weight-medium);
+  --font-weight-semibold: var(--font-weight-semibold);
+  --font-weight-bold: var(--font-weight-bold);
+
+  /* Shadows - Map to CSS shared variables */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  /* Border Radius - Map to CSS shared variables */
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-3xl: var(--radius-3xl);
+  --radius-full: var(--radius-full);
+}
+
+
+/* CSS Custom Properties for theming */
+
+
+
+
+:root {
+  /* Default value for full radius if not set by JS */
+  --radius-full: 9999px;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-base, 400);
+  line-height: var(--line-height-base, 1.5);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism System */
+.glass {
+  background-color: var(--color-surface);
+  backdrop-filter: blur(var(--glass-blur, 0px));
+}
+
+.glassmorphism-enabled .glass {
+  background-color: color-mix(in srgb, var(--color-surface), transparent calc(100% - (var(--glass-opacity) * 100%)));
+  border: 1px solid var(--glass-border, transparent);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Explicit Font Utility Classes */
+.font-inter {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif !important;
+}
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.font-lexend {
+  font-family: 'Lexend', sans-serif !important;
+}
+
+/* Custom utility classes */
+/* .bg-primary {
+  background-color: rgb(var(--color-primary));
+}
+
+.bg-primary-dark {
+  background-color: rgb(var(--color-primary-700));
+}
+
+.text-primary {
+  color: rgb(var(--color-primary));
+}
+
+.border-primary {
+  border-color: rgb(var(--color-primary));
+} */
+
+.ring-primary {
+  --tw-ring-color: rgb(var(--color-primary) / 0.5);
+}
+
+.focus\:ring-primary:focus {
+  --tw-ring-color: rgb(var(--color-primary) / 0.5);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(243 244 246);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(209 213 219);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(156 163 175);
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Premium floating animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+
+  75% {
+    transform: translateY(-15px) rotate(0.5deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Shimmer effect for buttons and cards */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Gradient mesh animation for backgrounds */
+@keyframes gradientMesh {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-mesh {
+  background-size: 200% 200%;
+  animation: gradientMesh 8s ease infinite;
+}
+
+/* Pulse glow effect */
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(var(--color-primary), 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(var(--color-primary), 0.4);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Radial gradient utility for backgrounds */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Focus ring styles */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(var(--color-primary) / 0.5);
+}

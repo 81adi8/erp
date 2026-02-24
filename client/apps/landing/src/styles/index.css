@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/* Source directives - tell Tailwind v4 where to scan for classes */
+@source "../**/*.{js,ts,jsx,tsx}";
+@source "../../node_modules/@erp/common/src/**/*.{js,ts,jsx,tsx}";
+
+/* 
+ * Tailwind v4 Theme Configuration
+ * Maps CSS variables from ThemeContext to Tailwind utility classes
+ */
+@theme {
+  /* Spacing & Sizing Scale */
+  --spacing: 0.25rem;
+
+  /* Border Radius Scale - Mapped to ThemeProvider */
+  --radius-none: var(--radius-none, 0);
+  --radius-sm: var(--radius-sm, 0.25rem);
+  --radius-md: var(--radius-md, 0.5rem);
+  --radius-lg: var(--radius-lg, 0.75rem);
+  --radius-xl: var(--radius-xl, 1rem);
+  --radius-full: var(--radius-full, 9999px);
+
+  /* Primary Colors - Mapped to ThemeProvider */
+  --color-primary: var(--color-primary, #60A5FA);
+  --color-primary-light: var(--color-primary-light, #93C5FD);
+  --color-primary-dark: var(--color-primary-dark, #3B82F6);
+  --color-primary-foreground: var(--color-primary-foreground, #ffffff);
+
+  /* Secondary Colors - Mapped to ThemeProvider */
+  --color-secondary: var(--color-secondary, #A78BFA);
+  --color-secondary-light: var(--color-secondary-light, #C4B5FD);
+  --color-secondary-dark: var(--color-secondary-dark, #8B5CF6);
+  --color-secondary-foreground: var(--color-secondary-foreground, #ffffff);
+
+  /* Background & Surface - Mapped to ThemeProvider */
+  --color-background: var(--color-background, #0F172A);
+  --color-foreground: var(--color-foreground, #F1F5F9);
+  --color-surface: var(--color-surface, #1E293B);
+  --color-surface-hover: var(--color-surface-hover, #334155);
+
+  /* Card - Mapped to ThemeProvider */
+  --color-card: var(--color-card, #1E293B);
+  --color-card-foreground: var(--color-card-foreground, #F1F5F9);
+
+  /* Muted - Mapped to ThemeProvider */
+  --color-muted: var(--color-muted, #334155);
+  --color-muted-foreground: var(--color-muted-foreground, #64748B);
+
+  /* Text Colors - Mapped to ThemeProvider */
+  --color-text: var(--color-text, #F1F5F9);
+  --color-text-secondary: var(--color-text-secondary, #CBD5E1);
+  --color-text-muted: var(--color-text-muted, #64748B);
+
+  /* Border Colors - Mapped to ThemeProvider */
+  --color-border: var(--color-border, #334155);
+  --color-border-light: var(--color-border-light, #475569);
+
+  /* State Colors - Mapped to ThemeProvider */
+  --color-success: var(--color-success, #34D399);
+  --color-warning: var(--color-warning, #FBBF24);
+  --color-error: var(--color-error, #F87171);
+  --color-info: var(--color-info, #38BDF8);
+
+  /* Typography - Mapped to ThemeProvider */
+  --font-sans: var(--font-family, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  --font-mono: var(--font-family-mono, 'JetBrains Mono', monospace);
+
+  /* Shadows - Mapped to ThemeProvider */
+  --shadow-sm: var(--shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.3));
+  --shadow-md: var(--shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.4));
+  --shadow-lg: var(--shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.4));
+  --shadow-xl: var(--shadow-xl, 0 20px 25px -5px rgb(0 0 0 / 0.5));
+}
+
+/* Base variables that can be overridden by ThemeProvider */
+:root {
+  --spacing: 0.25rem;
+  --color-primary: #60A5FA;
+  --color-secondary: #A78BFA;
+  --color-background: #0F172A;
+  --color-surface: #1E293B;
+  --color-text: #F1F5F9;
+  --color-text-secondary: #CBD5E1;
+  --color-text-muted: #64748B;
+  --color-border: #334155;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  background-color: var(--color-background, #0F172A);
+  color: var(--color-text, #F1F5F9);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary, #60A5FA) 0%, var(--color-secondary, #A78BFA) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary, #60A5FA) 0%, var(--color-primary-dark, #3B82F6) 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, var(--color-secondary, #A78BFA) 0%, var(--color-secondary-dark, #8B5CF6) 100%);
+}
+
+.bg-gradient-mixed {
+  background: linear-gradient(135deg, var(--color-primary, #60A5FA) 0%, var(--color-secondary, #A78BFA) 100%);
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(circle at 50% 50%, var(--color-primary-light, #93C5FD) 0%, transparent 70%);
+}
+
+/* Animated gradient */
+.bg-gradient-animated {
+  background: linear-gradient(-45deg, var(--color-primary), var(--color-secondary), var(--color-primary-light), var(--color-secondary-light));
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Pulse glow effect */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(96, 165, 250, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface, #1E293B);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border, #334155);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted, #64748B);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--color-primary, #60A5FA);
+  color: white;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,53 @@
+# =====================================================
+# CLIENT GITIGNORE
+# =====================================================
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+dist/
+dist-ssr/
+build/
+out/
+
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Logs
+*.log
+
+# TypeScript build info
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Test coverage
+coverage/
+
+# Vite
+*.local
+
+# Next.js (if used)
+.next/
+out/
+
+# Generated/optimized configs
+*.optimized
+
+# Development environment configs - DO NOT COMMIT
+dev-env/
