@@ -552,26 +552,7 @@
   },
   "internationalizationEnabled": false,
   "supportedLocales": [],
-  "authenticationFlows": [
-    {
-      "id": "registration",
-      "alias": "registration",
-      "description": "registration flow",
-      "providerId": "basic-flow",
-      "topLevel": true,
-      "builtIn": true,
-      "authenticationExecutions": [
-        {
-          "authenticator": "registration-page-form",
-          "authenticatorFlow": true,
-          "requirement": "REQUIRED",
-          "priority": 10,
-          "autheticatorFlow": true,
-          "flowAlias": "registration form"
-        }
-      ]
-    }
-  ],
+
   "authenticatorConfig": [],
   "requiredActions": [
     {
@@ -638,12 +619,7 @@
       "config": {}
     }
   ],
-  "browserFlow": "browser",
-  "registrationFlow": "registration",
-  "directGrantFlow": "direct grant",
-  "resetCredentialsFlow": "reset credentials",
-  "clientAuthenticationFlow": "clients",
-  "dockerAuthenticationFlow": "docker auth",
+
   "attributes": {
     "cibaBackchannelTokenDeliveryMode": "poll",
     "cibaExpiresIn": "120",
