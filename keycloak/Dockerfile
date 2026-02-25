@@ -1,7 +1,7 @@
 FROM quay.io/keycloak/keycloak:24.0
 
 # Copy realm configuration
-COPY keycloak/realm-config/ /opt/keycloak/data/import/
+COPY realm-config/ /opt/keycloak/data/import/
 
 # Build optimized image first
 RUN /opt/keycloak/bin/kc.sh build
