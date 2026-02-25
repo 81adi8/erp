@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  keycloak:
+    build:
+      context: ./keycloak
+      dockerfile: Dockerfile
+    container_name: school-erp-keycloak
+    ports:
+      - "8080:8080"
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_DB=dev-file
+    volumes:
+      - ./keycloak/realm-config:/opt/keycloak/data/import
+    command: [
+      "start", 
+      "--optimized", 
+      "--http-port=8080", 
+      "--http-host=0.0.0.0", 
+      "--import-realm",
+      "--features=token-exchange,admin-fine-grained-authz"
+    ]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/realms/school-erp"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
